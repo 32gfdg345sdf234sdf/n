@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html class="no-js smooth-scroll" lang="en">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <title>Lethality</title>
+      <meta name="description" content="Lethality is an advanced Rust software provider developing with quality in mind.">
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, shrink-to-fit=no">
+      <meta name="twitter:card" content="summary">
+      <meta name="twitter:title" content="Lethality">
+      <meta name="twitter:description" content="closet cheaters' blessing">
+      <meta property="og:url" content="https://Lethality.win/">
+      <meta property="og:title" content="Lethality">
+      <meta property="og:description" content="closet cheaters' blessing">
+      <meta property="og:type" content="website">
+      <link rel="icon" href="/favicon.ico"/>
+      <link href="css/imports.css" rel="stylesheet">
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="css/snackbar.css" />
+      <script src="js/snackbar.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   </head>
+   <body>
+      <section id="login">
+         <div class="container h-100">
+            <div class="row justify-content-center align-items-center h-100">
+               <div class="col-md-10 col-lg-5">
+                  <div class="login-box" data-aos="fade-up" data-aos-duration="1500">
+                     <h2>Lethality</h2>
+                     <p>Register to obtain access to the dashboard.</p>
+                     <form method="post" id="register-form">
+                        <div class="form-input-icon mb-3 mt-4"><i class="fas fa-user"></i><input class="auth-input" type="text" placeholder="User" name="username" autocomplete="off" minlength="3" required></div>
+                        <div class="form-input-icon mb-3"><i class="fas fa-envelope active"></i><input class="auth-input" type="email" placeholder="E-Mail" name="email" autocomplete="off" required></div>
+                        <div class="form-input-icon mb-3"><i class="fas fa-lock"></i><input class="auth-input" type="password" placeholder="Password" name="password" autocomplete="off" required minlength="8" pattern="^(?!^\s.*$)(?!^.*\s$)[ -~]+$" id="password"></div>
+                        <div class="form-input-icon"><i class="fas fa-lock"></i><input class="auth-input" type="password" placeholder="Password Confirmation" name="confirm_password" autocomplete="off" required minlength="8" pattern="^(?!^\s.*$)(?!^.*\s$)[ -~]+$" id="confirm_password"></div>
+                        <div class="mt-3 progress-bg">
+                           <div id="progress-password"></div>
+                        </div>
+                        <div class="form-input-icon mb-3 mt-4"><i class="fas fa-lock"></i><input class="auth-input" type="text" placeholder="Authorization Code" name="authorization_code" autocomplete="off" minlength="3" required></div>
+                        <button href="#" class="button primary d-block mt-3 w-100" id="register-button">Register</button>
+                     </form>
+                  </div>
+                  <p class="text-center bottom-text" data-aos="fade-up" data-aos-duration="2000">Registered user? <a href="login"><strong>Sign in instead</strong></a></p>
+               </div>
+            </div>
+         </div>
+         <div class="overlay-top-right"></div>
+         <div class="overlay-bottom-right"></div>
+         <div class="overlay-bottom-left"></div>
+      </section>
+   </body>
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script><script src="js/bootstrap.js"></script><script src="js/core.js"></script><script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script><script>AOS.init({disable: 'mobile',once: true,});</script><script>$("#password").on('input', function(e) {var complex = checkPassword($(this).val());var progress = $('#progress-password');var valid = complex > 50;if (valid) {progress.css({'width': complex + '%','box-shadow': valid ?'0px 0px ' + (parseFloat(complex) / 33.3333333) + 'px ' + (parseFloat(complex) / 33.3333333) + 'px var(--primary-opaque-strong)' : '0px 0px ' + (parseFloat(complex) / 33.3333333) + 'px ' + (parseFloat(complex) / 33.3333333) + 'px rgb(209, 102, 102, 0.15)','background-color': valid ? 'var(--primary)' : '#D16666'});} else {progress.css({'width': (parseFloat(complex) / 1.5) + '%','box-shadow': valid ?'0px 0px ' + (parseFloat(complex) / 33.3333333) + 'px ' + (parseFloat(complex) / 33.3333333) + 'px var(--primary-opaque-strong)' : '0px 0px ' + (parseFloat(complex) / 33.3333333) + 'px ' + (parseFloat(complex) / 33.3333333) + 'px rgb(209, 102, 102, 0.15)','background-color': valid ? 'var(--primary)' : '#D16666'});}});$("#register-form").submit(function(e) {e.preventDefault();if ($('#register-button').hasClass('disabled'))return;$('#register-button').addClass('disabled');if ($("#password").val() !== $("#confirm_password").val()) {notify("The entered Passwords do not match.", 0);enable_auth_button();return;}var data = new FormData($('#register-form')[0]);$.ajax({url: '../php/register/register.php',contentType: "text/html; charset=UTF-8",type: 'POST',data: data,cache: false,async: true,processData: false,contentType: false,success: function(response) {grecaptcha.execute();switch (response) {case "success":notify("Redirecting.", 1);setTimeout(function() {$(location).attr('href', '../dashboard/');}, 2500);break;case "success_redirect":notify("Redirecting.", 1);setTimeout(function() {$(location).attr('href', '../dashboard/product/?product=1');}, 2500);break;case "empty_data":notify("Filling out all fields is required.", 0);break;case "user_short":notify("Your Username is too short. It must contain at least 3 chars.", 0);break;case "pass_short":notify("Your Password is too short. It must contain at least 8 chars.", 0);break;case "pass_long":notify("Your Password is too long.", 0);break;case "pass_weak":notify("Your Password is too weak.", 0);break;case "pass_match":notify("The entered Passwords do not match.", 0);break;case "account_exists":notify("The specified Username or E-Mail is already taken.", 0);break;case "captcha_failed":notify("Failture during Captcha.", 0);break;case "email_not_valid":notify("The specified E-Mail adress could not be fetched.", 0);break;case "username_not_valid":notify("The specified Username contains unsupported characters.", 0);break;}},error: function() {notify("The specified Authorization Code does not exist.", 0);}});enable_auth_button();});function enable_auth_button() {setTimeout(function() {$('#register-button').removeClass('disabled').delay(800);}, 700);}</script><script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback" async defer></script><script>var onloadCallback = function() {grecaptcha.execute();};function setResponse($response) {document.getElementById('g-captcha-response').value = $response;}</script>
+</html>
