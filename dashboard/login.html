@@ -1,63 +1,39 @@
-<!DOCTYPE html> 
-<html class="no-js smooth-scroll" lang="en">
-   <head>
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-      <title>Lethality</title>
-      <meta name="description" content="Lethality is an advanced Rust software provider developing with quality in mind.">
-      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, shrink-to-fit=no">
-      <meta name="twitter:card" content="summary">
-      <meta name="twitter:title" content="Lethality">
-      <meta name="twitter:description" content="Closet cheaters' blessing">
-      <meta property="og:url" content="https://Lethality.win/">
-      <meta property="og:title" content="Lethality">
-      <meta property="og:description" content="Closet cheaters' blessing">
-      <meta property="og:type" content="website">
-      <link rel="icon" href="/favicon.ico"/>
-      <link href="css/imports.css" rel="stylesheet">
-      <link href="css/aos.css" rel="stylesheet">
-      <link rel="stylesheet" href="css/all.css">
-      <script src="js/jquery.min.js"></script>
-      <link rel="stylesheet" href="css/snackbar.css">
-      <script src="js/snackbar.js"></script><script src="js/aos.js"></script>
-   </head>
-   <body>
-      <section id="modal-login" class="d-none" onclick="checkForClose()">
-         <div class="modal-box">
-            <div class="row justify-content-center align-items-center title">
-               <div class="col-12">
-                  <h2 id="modal-title">Reset your password</h2>
-               </div>
-               <div class="col-12 mt-3">
-                  <form method="post" id="reset-form">
-                     <div class="form-input-icon mb-3"><i class="fas fa-envelope active"></i><input class="auth-input" type="email" placeholder="Email" name="email" autocomplete="off" required></div>
-                     <button href="#" class="button primary d-block w-100" id="reset-button">Reset your password</button>
-                  </form>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section id="login">
-         <a href="https://Lethality.win/"><span class="logo"></span></a></a>
-         <div class="container h-100">
-            <div class="row justify-content-center align-items-center h-100">
-               <div class="col-md-10 col-lg-5">
-                  <div class="login-box" data-aos="fade-up" data-aos-duration="1500">
-                     <h2>Lethality</h2>
-                     <p>Sign in to enter the dashboard.</p>
-                     <form method="post" id="login-form">
-                        <div class="form-input-icon mb-3 mt-4"><i class="fas fa-user"></i><input class="auth-input" type="text" placeholder="User" name="username" autocomplete="off" minlength="3" required></div>
-                        <div class="form-input-icon mb-3"><i class="fas fa-lock"></i><input class="auth-input" type="password" placeholder="Password" name="password" autocomplete="off" required minlength="8" pattern="^(?!^\s.*$)(?!^.*\s$)[ -~]+$" id="password"></div>
-                        <button href="#" class="button primary d-block mt-3 w-100" id="login-button">Enter</button>
-                     </form>
-                  </div>
-                  <p class="text-center bottom-text" data-aos="fade-up" data-aos-duration="2000">Newbie? <a href="register"><strong>Register instead</strong></a></p>
-               </div>
-            </div>
-         </div>
-         <div class="overlay-top-right"></div>
-         <div class="overlay-bottom-right"></div>
-         <div class="overlay-bottom-left"></div>
-      </section>
-      <script src="js/popper.min.js" crossorigin="anonymous"></script><script src="js/bootstrap.js"></script><script src="js/core.js"></script><script>AOS.init({disable: 'mobile',once: true,});</script><script>$("#login-form").submit(function(e) {e.preventDefault();if ($('#login-button').hasClass('disabled'))return; $('#login-button').addClass('disabled');var data = new FormData($('#login-form')[0]);$.ajax({url: '../php/login/login.php',contentType: "text/html; charset=UTF-8",type: 'POST',data: data,cache: false,async: true,processData: false,contentType: false,success: function(response) {grecaptcha.execute();switch (response) {case "success":notify("Redirecting.", 1);setTimeout(function() {$(location).attr('href', 'https://Lethality.win/dashboard/');}, 2500);break;case "success_redirect":notify("Redirecting.", 1);setTimeout(function() {$(location).attr('href', '../dashboard/product/?product=1');}, 2500);break;case "empty_data":notify("Filling out all fields is required.", 0);break;case "account_invalid":notify("Either the input was incorrect or the account does not exist.", 0);break;case "captcha_failed":notify("Failture during Captcha.", 0);break;default:var split_ = response.split(":");if (split_[0] == "banned") {notify("You're banned from Lethality.win. Reason: " + split_[1], 0);}break;}},error: function() {notify("Either the input was incorrect or the account does not exist.", 0);}});setTimeout(function() {$('#login-button').removeClass('disabled').delay(800);}, 700);});function openModal() {$("#modal-login").fadeIn(300);$("#modal-login").removeClass("d-none");$("#modal-login input").val("");}function closeModal() {$("#modal-login").fadeOut(300);}function checkForClose() {if (!($("#modal-login>.modal-box").is(':hover'))) {closeModal();}}</script><script>$("#reset-form").submit(function(e) {e.preventDefault();if ($('#reset-button').hasClass('disabled'))return;$('#reset-button').addClass('disabled');var data = new FormData($('#reset-form')[0]);$.ajax({url: '../php/reset_password/reset_password.php',contentType: "text/html; charset=UTF-8",type: 'POST',data: data,cache: false,async: true,processData: false,contentType: false,success: function(response) {switch (response) {case "mail_sent":notify("Password reset email was sent successfully.", 1);break;case "mail_not_sent":notify("Email not sent, try again in some minutes.", 1);break;case "wait_delay":notify("You need to wait some minutes to do a new email request.", 2);break;}},error: function() {notify("Some unknown error has occurred, please try again later.", 0);}});setTimeout(function() {$('#reset-button').removeClass('disabled').delay(800);}, 700);});</script><script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback" async defer></script><script>var onloadCallback = function() {grecaptcha.execute();};function setResponse($response) {document.getElementById('g-captcha-response').value = $response;}</script>
-   </body>
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Nyctum is an advanced Rust software provider developing with quality in mind.">
+<meta name="keywords" content="rust, rust script, no recoil script, rust cheat, rust hack, cheat, script, hack">
+<meta name="author" content="zer0">
+<meta property="og:site" content="https://nyctum.cc">
+<meta property="og:title" content="nyctum">
+<meta name="og:description" content="closet cheaters' blessing." />
+<meta name="theme-color" content="#ffffff">
+<meta data-react-helmet="true" property="og:image" content="https://nyctum.cc/logo.png"/><meta data-react-helmet="true" property="twitter:image" content="https://nyctum.cc/logo.png"/>
+<link rel="icon" href="logo.ico" />
+  
+<title>nyctum</title>
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
+body, html {
+margin: 0;
+padding: 0;
+background-color: #0c0d11;
+color: #fff;
+font-size: 24px;
+font-family: 'Open Sans', cursive;
+font-weight: 300;
+}
+</style>
+</head>
+<body>
+<div style="position: absolute; top: 0; left: 0; margin: 0 auto; width: 100%; height: 100%;">
+<div style="text-align: center; padding-top: 10%;">
+<br>
+maintenance
+</div>
+</div>
+</body>
 </html>
