@@ -747,15 +747,15 @@ step="any"
 
 <ul style="background-color:#090b14;color:#ffffff;font-size:14px;">
 <li>
-menu that overlays Rust
+menu that overlays the game
 <ul>
 <li>
-    configurable in the keys section, default key is insert
+    quickly change your weapon/attachment/barrel using arrow keys
 </li>
 </ul>
 </li>
 <li>
-mini menu
+    mini menu
 <ul>
 <li>
     <span style="font-size:14px;text-align:left;">visualises the on/off state + the current weapon, attachment &amp; barrel selected; control using arrow keys</span>
@@ -766,31 +766,23 @@ mini menu
 <span style="font-size:14px;text-align:left;">recoil compensation for all full auto weapons</span>
 <ul>
 <li>
-    <span style="font-size:14px;text-align:left;">r301, flatline, r99, volt, alternator, devotion, havoc, re45, spitfire, lstar, rampage &amp; car</span>
+    <span style="font-size:14px;text-align:left;">assault rifle, lr-300, mp5, thompson, custom smg, m249, sar, sap, m39, m92, revolver, python &amp; nailgun</span>
 </li>
 </ul>
 </li>
 <li>
-<span style="font-size:14px;text-align:left;">recoil compensation for all sights</span>
+<span style="font-size:14px;text-align:left;">recoil compensation for all attachments</span>
 <ul>
 <li>
-    <span style="font-size:14px;text-align:left;">1x reflex holosight, 1x hcog classic, 1x - 2x variable reflex holosight, 2x hcog brusier, 2x - 4x variable aog, 3x hcog ranger &amp; 1x digital threat</span>
+    <span style="font-size:14px;text-align:left;">8x, 16x, holosight &amp; simple handmade sight</span>
 </li>
 </ul>
 </li>
 <li>
-recoil compensation for all barrels
+    recoil compensation for all barrels
 <ul>
 <li>
-    <span style="font-size:14px;text-align:left;">common, rare, epic &amp; legendary</span>
-</li>
-</ul>
-</li>
-<li>
-recoil compensation for all magazines
-<ul>
-<li>
-    <span style="font-size:14px;text-align:left;">common, rare, epic &amp; legendary</span>
+    <span style="font-size:14px;text-align:left;">silencer &amp; muzzle boost</span>
 </li>
 </ul>
 </li>
@@ -802,94 +794,114 @@ customisable keybinds with configs
 </li>
 </ul>
 </li>
-<li>
-navigation sections
-<ul>
-<li>
-    recoil, aim assist, extra &amp; settings sections on our user friendly menu
-</li>
-</ul>
-</li>
-</ul>
+
+    </ul>
+
 
 <p style="background-color:rgb(9,11,20);">
 <font color="#8193F0"><span style="font-size:18px;"><b>Advanced</b></span></font>
 </p>
 
 <ul style="background-color:#090b14;color:#ffffff;font-size:14px;">
-<li>
-<strong>digital threat aim assist</strong>
 
-<ul>
-<li>
-    smart humanized aim assist while you're using a digital threat sight/scope.
-</li>
-</ul>
-</li>
-<li>
-automatically detects sensitivity &amp; fov and adjusts the script
-<ul>
-<li>
-    grabs sensitivity &amp; fov and adjusts accordingly (does not interact with the game)
-</li>
-</ul>
-</li>
-<li>
-auto detection for all full auto weapons
-<ul>
-<li>
-    <span style="font-size:14px;text-align:left;">automatically detects the weapon that is being held and adjusts the script accordingly, works for all full auto weapons (does not interact with the game)</span>
-</li>
-</ul>
-</li>
-<li>
-<span style="font-size:14px;text-align:left;">auto detection for all attachments</span>
-<ul>
-<li>
-    <span style="font-size:14px;text-align:left;">automatically detects the attachments on your weapon and adjusts the script accordingly, works for all attachments, including turbo charger and rampage charge (does not interact with the game</span>
-</li>
-</ul>
-</li>
-<li>
-recoil pausing
-<ul>
-<li>
-    turning the recoil on and off mid-spray is supported
-</li>
-</ul>
-</li>
-<li>
-re-aim control
-<ul>
-<li>
-    if you begin hip firing in an un-ads state the script will know if you begin to ads and begin to control from that position without issues
-</li>
-</ul>
-</li>
-<li>
-cursor check
-<ul>
-<li>
-    checks for cursor visibility so that the script only works when you are truly ready to use it
-</li>
-</ul>
-</li>
-<li>
-script only works in Rust
-<ul>
-<li>
-    script only works in the Rust window to prevent the spray going off whilst you browse through your cat picture collection
-</li>
-</ul>
-</li>
-<li>
-sounds
-<ul>
-<li>
-    beeps for when keybinds are hit
-</li>
-</ul>
-</li>
+    <li>
+        smart magazine
+    <ul>
+    <li>
+        <span style="font-size:14px;text-align:left;">recognises when you have 0 bullets in your clip and stops the script until you have reloaded or swapped weapons to prevent the script working with an empty clip</span>
+    </li>
+    </ul>
+    </li>
+    
+    <li>
+        automatically detects sensitivity & fov and adjusts the script
+    <ul>
+    <li>
+        <span style="font-size:14px;text-align:left;">grabs sensitivity & fov and adjusts accordingly (does not interact with the game)</span>
+    </li>
+    </ul>
+    </li>
+    
+    <li>
+        auto detection for all weapons
+    <ul>
+    <li>
+        <span style="font-size:14px;text-align:left;">automatically detects the weapon that is being held and adjusts the script accordingly, works for all weapons (does not interact with the game)</span>
+    </li>
+    </ul>
+    </li>
+    
+    <li>
+        auto detects crouch button
+    <ul>
+    <li>
+        <span style="font-size:14px;text-align:left;">when in a crouching or standing stance the severity of spray adjusts for m249 and semi automatic weapons, diablo detects your crouch key to ensure recoil compensation in any crouching or standing stance</span>
+    </li>
+    </ul>
+    </li>
+    
+    <li>
+        auto detects movement keys
+    <ul>
+    <li>
+        <span style="font-size:14px;text-align:left;">when moving left to right, forward & backwards, the severity of the spray adjusts for m249 and semi automatic weapons, diablo detects your movement keys to ensure recoil compensation in any movement</span>
+    </li>
+    </ul>
+    </li>
+    
+    <li>
+        quick tap firing
+    <ul>
+    <li>
+        <span style="font-size:14px;text-align:left;">tap firing with the script will not cause issues, it will adjust accordingly</span>
+    </li>
+    </ul>
+    </li>
+    
+    <li>
+        recoil pausing
+    <ul>
+    <li>
+        <span style="font-size:14px;text-align:left;">turning the recoil on and off mid-spray is supported</span>
+    </li>
+    </ul>
+    </li>
+    
+    <li>
+        re-aim control
+    <ul>
+    <li>
+        <span style="font-size:14px;text-align:left;">if you begin hip firing in an un-ads state the script will know if you begin to ads and begin to control from that position without issues</span>
+    </li>
+    </ul>
+    </li>
+    
+    <li>
+        cursor check
+    <ul>
+    <li>
+        <span style="font-size:14px;text-align:left;">checks for cursor visibility so that the script only works when you are truly ready to use it</span>
+    </li>
+    </ul>
+    </li>
+    
+    <li>
+        script only works in Rust
+    <ul>
+    <li>
+        <span style="font-size:14px;text-align:left;">script only works in the rust window to prevent the spray going off whilst you browse through your cat picture collection</span>
+    </li>
+    </ul>
+    </li>
+    
+    <li>
+        sounds
+    <ul>
+    <li>
+        <span style="font-size:14px;text-align:left;">beeps for when keybinds are hit</span>
+    </li>
+    </ul>
+    </li>
 </ul>
 
 <p style="background-color:rgb(9,11,20);">
@@ -898,7 +910,7 @@ sounds
 
 <ul style="background-color:#090b14;color:#ffffff;font-size:14px;">
 <li>
-hip-fire control
+    always control hip-fire
 <ul>
 <li>
     when the cursor isn't visible the script will control the spray when you begin aiming down sights, or un-ads (it will always control hipfire)
@@ -929,18 +941,43 @@ never control hip fire
 
 <ul style="background-color:#090b14;color:#ffffff;font-size:14px;">
 <li>
-x,y control amount sliders
+    movement exaggeration amount (%)
 <ul>
 <li>
-    % sliders for x,y axis', ability to make fake hand cams
+    movement exaggeration amount (%)
 </li>
 </ul>
 </li>
 <li>
-randomisation
+    x,y control amount sliders
+    <ul>
+    <li>
+        % sliders for x,y axis', ability to make fake hand cams
+    </li>
+    </ul>
+    </li>
+    <li>
+        blatant/legit mode
+        <ul>
+        <li>
+            blatant mode fixes weapon animations which results in a smooth 0 recoil, untick it for a more realistic spray (both options are safe)
+        </li>
+        </ul>
+        </li>
+
+        <li>
+            extra randomisation
+            <ul>
+            <li>
+                makes your spray more random each spray
+            </li>
+            </ul>
+            </li>
+<li>
+    inaccurate start
 <ul>
 <li>
-    makes your spray more random each spray
+    configurable inaccuracy for the first 3 bullets
 </li>
 </ul>
 </li>
@@ -1035,13 +1072,11 @@ automated downloads and credentials
 easy to reset hwid's for new computers or components
 <ul>
 <li>
-    log monitor serials, hdd and many other serials
+    we log monitor serials, hdd and many other serials so you can only use it on one device, however if you need a HWID reset, we can sort that out for you in a jiffy
 </li>
 </ul>
 </li>
-<li>
-virtual input flag removal
-</li>
+
 </ul>
 
 <p style="background-color:rgb(9,11,20);">
@@ -1075,9 +1110,13 @@ non-virtualised environment
 </li>
 <li>
 stable internet connection
+<ul>
+<li>
+    no firewalls must be blocking the connection & the connection needs to remain constant and stable or diablo will close and you will need to reopen it
 </li>
 </ul>
-
+</li>
+</ul>
 </div>
 
 </div>
@@ -1380,3 +1419,4 @@ All rights reserved. All other trademarks, logos and copyrights are the property
     </div>
 </div>
 </div>
+</html>
